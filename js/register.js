@@ -16,6 +16,7 @@ document
     formData.append("email", email);
     formData.append("password", password);
  
+    // Fetch
     try {
       const res = await fetch("api/register.php", {
         method: "POST",
