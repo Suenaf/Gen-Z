@@ -1,5 +1,29 @@
-body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: black;
+@font-face {
+    font-family: 'LuckiestGuy';
+    src: url('../fonts/LuckiestGuy-Regular.ttf') format('truetype');
+}
+
+h1 {
+    font-family: 'LuckiestGuy';
+    font-size: 3rem;
     color: white;
+}
+
+h2 {
+    font-family: 'LuckiestGuy';
+    font-size: 2rem;
+    color: white;
+}
+h3 {
+    font-family: 'LuckiestGuy';
+    font-size: 1.5rem;
+    color: white;
+}
+
+body {
+    font-family: 'Lucida Sans Regular', 'Lucida Grande';
+    
+    font-size: 1.5rem;;
+    color: white;
+    background-color:black;
 }
