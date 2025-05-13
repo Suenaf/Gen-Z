@@ -11,3 +11,47 @@
     color: #325941;
     font-weight: bold;
   }
+
+  .dashboard-box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #233E2D;
+    padding: 4rem 1rem 6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    border-top-left-radius: 100% 120px;
+    border-top-right-radius: 100% 120px;
+  
+    text-align: center;
+    z-index: 10; /* damit es über anderem Content liegt */
+  }
+  
+  #logout-button {
+    all: unset;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'LuckiestGuy', sans-serif;
+    color: #E7D8B5;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    line-height: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s ease;
+    width: auto;            /* ✨ Wichtig: verhindert Stretching */
+    max-width: 300px;       /* optional, falls du ein Limit willst */
+  }
+  
+  #logout-button:hover,
+#logout-button:focus {
+  background-color: rgba(231, 216, 181, 0.2); /* sanfter Hover-Effekt */
+  outline: 2px solid #E7D8B5;                 /* sichtbarer Rahmen bei Fokus */
+  outline-offset: 4px;
+}

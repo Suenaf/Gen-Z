@@ -67,28 +67,28 @@ input {
     font-family: 'LuckiestGuy', sans-serif; 
 }
 
-button
-{
-    all: unset; /* entfernt alle Browser-Standardstyles */
-    display: inline-block;
-    font-size: 1rem;  
-    font-weight: bold;
-    font-family: 'LuckiestGuy', sans-serif;
-    color: #E7D8B5;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    line-height: 1.5rem;    
-    border-radius: 0.5rem;    /* für Touch-Feedback */
-    text-align: center;
-    transition: background 0.2s ease;
-  }
+.button {
+  all: unset;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'LuckiestGuy', sans-serif;
+  color: #233E2D;
+  background-color: #E7D8B5;
+  padding: 1rem 2rem;
+  line-height: 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease;
+}
 
-  button:hover,
-  button:focus {
-    background-color: rgba(231, 216, 181, 0.2); /* leichtes Feedback beim Hover/Focus */
-    outline: 2px solid #E7D8B5; /* Sichtbare Umrandung für Tastaturnutzer */
-    outline-offset: 4px;
-  }
+.button:hover,
+.button:focus {
+  background-color: #d1c5a4;
+  outline: 2px solid #E7D8B5;
+  outline-offset: 4px;
+}
 
 button[type="submit"] {
     all: unset; /* entfernt alle Browser-Standardstyles */
