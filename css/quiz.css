@@ -1,0 +1,37 @@
+#progress-bar {
+    height: 8px;
+    background-color: #4caf50;
+    width: 0%;
+    transition: width 0.5s;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #325941;
+    transition: 0.3s;
+}
+
+button.correct {
+    background-color: #137a3a;
+    color: white;
+}
+
+button.wrong {
+    background-color: #f44336;
+    color: white;
+}
+
+button.disabled {
+    opacity: 0.5;
+}
+
+button:hover:not(:disabled) {
+    background-color: #bbb;
+}
