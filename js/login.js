@@ -13,6 +13,11 @@ document
     const formData = new FormData();
     formData.append("loginInfo", loginInfo);
     formData.append("password", password);
+
+    if (!loginInfo || !password) {
+      alert("Bitte fülle alle Felder aus");
+      return;
+    }
  
     // Fetch
     try {
