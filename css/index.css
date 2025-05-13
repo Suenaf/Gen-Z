@@ -1,10 +1,10 @@
 #welcome-message {
     display: block;
-    margin: 2rem auto;       /* Block zentrieren */
     max-width: 400px;        /* optional: begrenzt Breite */
     text-align: left;        /* Text bleibt linksbündig */
     white-space: normal;
     line-height: 1.4;
+    padding-left: 2rem; /* optional: Abstand vom linken Rand */
   }
   
   .username-highlight {
