@@ -30,7 +30,7 @@ document
   
       if (reply === "Login erfolgreich") {
         // Login erfolgreich
-        window.location.href = "protected.html"; // Weiterleitung zur Startseite
+        window.location.href = "index.html"; // Weiterleitung zur Startseite
       }
    
     } catch (err) {

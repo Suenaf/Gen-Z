@@ -1,7 +1,7 @@
-console.log("protected.js loaded");
+console.log("index.js loaded");
 
 // fetch
-fetch("api/protected.php")
+fetch("api/index.php")
 .then((response) => response.json())
 .then((data) => {
     console.log(data);
