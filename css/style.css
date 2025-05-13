@@ -6,24 +6,24 @@
 h1 {
     font-family: 'LuckiestGuy';
     font-size: 3rem;
-    color: white;
+    color: black;
 }
 
 h2 {
     font-family: 'LuckiestGuy';
     font-size: 2rem;
-    color: white;
+    color: black;
 }
 h3 {
     font-family: 'LuckiestGuy';
     font-size: 1.5rem;
-    color: white;
+    color: black;
 }
 
 body {
     font-family: 'Lucida Sans Regular', 'Lucida Grande';
     
     font-size: 1.5rem;;
-    color: white;
-    background-color:black;
+    color: black;
+    background-color:E7D8B5;
 }
