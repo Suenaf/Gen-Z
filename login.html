@@ -9,24 +9,30 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <h1>Jetzt einloggen</h1>
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo" class="logo" />
+    </div>
 
-    <form id="loginForm" action="">
+    <main class="center-wrapper">
+        <div class="headline">
+            <h2>so tickt</h2>
+            <h1>gen z</h1>
+        </div>
 
-        <label for="username-email">Benutzername oder E-Mail:</label>
-        <input id="username-email" type="text">
-        <br />
-        <br />
-
-        <label for="password">Passwort:</label>
-        <input id="password" type="password">
-        <br />
-        <br />
-
-        <button type="submit">Login</button>
-
-        <p>Noch kein Konto? <a href="register.html">Jetzt registrieren!</a></p>
-    </form>
+        <div class="form-section">
+            <form id="loginForm" action="">
+                <input id="username-email" type="text" placeholder="Benutzername oder E-Mail">
+                <br /><br />
+            
+                <input id="password" type="password" placeholder="Passwort">
+                <br /><br />
+            
+                <button type="submit">anmelden</button>
+            
+                <p><a href="register.html" class="text-button">registrieren</a></p>
+            </form>
+        </div>
+    </main>
 
     <script src="js/login.js"></script>
 </body>
