@@ -38,6 +38,10 @@ body {
     padding: 0;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .logo-container {
     position: absolute;
     top: 20px;
@@ -137,15 +141,35 @@ button[type="submit"] {
   }
 
   .form-section {
-    background-color: #233E2D;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    background-color: #233E2D;
     padding: 4rem 1rem 6rem 1rem;
     display: flex;
     justify-content: center;
+    border-top-left-radius: 100% 120px;
+    border-top-right-radius: 100% 120px;
+    z-index: 10;
+  }
 
-border-top-left-radius: 100% 120px;
-border-top-right-radius: 100% 120px;
-    margin-top: 2rem;
+  @media screen and (max-width: 768px) {
+    .form-section {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 4rem 1rem 0.5rem 1rem;
+      display: flex;
+      justify-content: center;
+      border-top-left-radius: 100% 120px;
+      border-top-right-radius: 100% 120px;
+      z-index: 10;
+    }
+  
+    .center-wrapper {
+      padding-bottom: 100px; /* Raum für die form-section */
+    }
   }
 
   #logout-button {
@@ -180,12 +204,10 @@ border-top-right-radius: 100% 120px;
   .dashboard-box {
     position: fixed;
     bottom: 0;
-    left: 0;
     width: 100%;
     background-color: #233E2D;
     padding: 4rem 1rem 6rem 1rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-top-left-radius: 100% 120px;
     border-top-right-radius: 100% 120px;
@@ -224,15 +246,41 @@ border-top-right-radius: 100% 120px;
   outline-offset: 4px;
 }
 
-.home-icon {
-  width: 24px;   /* oder z. B. 32px je nach Wunsch */
-  height: 24px;
-  fill: #E7D8B5; /* falls das SVG `fill="currentColor"` nutzt */
-}
-
 .container {
   width: 80%;
   margin: 0 auto;
   background-color: #325941;
   padding: 20px;
+}
+
+/* Basis-Design: Smartphone */
+.home-icon {
+  width: 32px !important;
+  height: 32px !important;
+  fill: #E7D8B5 !important;
+  display: block;
+}
+
+/* Desktop kleiner machen */
+@media screen and (min-width: 769px) {
+  .home-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Media Query muss danach kommen! */
+@media screen and (max-width: 768px) {
+  .dashboard-box {
+    padding: 2rem 1rem 2rem 1rem;
+    border-top-left-radius: 100% 80px;
+    border-top-right-radius: 100% 80px;
+  }
+
+  #logout-button,
+  .button,
+  .icon-button {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
 }
