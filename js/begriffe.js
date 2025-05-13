@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             begriffeData = data; // Speichern der Begriffe in der globalen Variable
 
+            // Begriffe nach Wort alphabetisch sortieren
+            begriffeData.sort((a, b) => a.wort.localeCompare(b.wort));
+
             // Begriffe anzeigen
             renderBegriffe(begriffeData);
         })
