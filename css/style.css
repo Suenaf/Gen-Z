@@ -20,10 +20,12 @@ h3 {
     color: black;
 }
 
-body {
+p {
     font-family: 'Lucida Sans Regular', 'Lucida Grande';
-    
     font-size: 1.5rem;;
     color: black;
+}
+
+body {
     background-color:#E7D8B5;
 }
