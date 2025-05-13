@@ -1,0 +1,13 @@
+#welcome-message {
+    display: block;
+    max-width: 400px;        /* optional: begrenzt Breite */
+    text-align: left;        /* Text bleibt linksbündig */
+    white-space: normal;
+    line-height: 1.4;
+    padding-left: 2rem; /* optional: Abstand vom linken Rand */
+  }
+  
+  .username-highlight {
+    color: #325941;
+    font-weight: bold;
+  }

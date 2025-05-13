@@ -32,7 +32,10 @@ p {
 }
 
 body {
-    background-color:#E7D8B5;
+    background-color: #E7D8B5;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .logo-container {
@@ -45,3 +48,100 @@ body {
     height: 50px; /* oder gewünschte Höhe */
     width: auto;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+input {
+    padding: 0.75rem;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'LuckiestGuy', sans-serif; 
+}
+
+button
+{
+    all: unset; /* entfernt alle Browser-Standardstyles */
+    display: inline-block;
+    font-size: 1rem;  
+    font-weight: bold;
+    font-family: 'LuckiestGuy', sans-serif;
+    color: #E7D8B5;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    line-height: 1.5rem;    
+    border-radius: 0.5rem;    /* für Touch-Feedback */
+    text-align: center;
+    transition: background 0.2s ease;
+  }
+
+  button:hover,
+  button:focus {
+    background-color: rgba(231, 216, 181, 0.2); /* leichtes Feedback beim Hover/Focus */
+    outline: 2px solid #E7D8B5; /* Sichtbare Umrandung für Tastaturnutzer */
+    outline-offset: 4px;
+  }
+
+button[type="submit"] {
+    all: unset; /* entfernt alle Browser-Standardstyles */
+    display: inline-block;
+    font-size: 1rem;  
+    font-weight: bold;
+    font-family: 'LuckiestGuy', sans-serif;
+    color: #E7D8B5;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    line-height: 1.5rem;    
+    border-radius: 0.5rem;    /* für Touch-Feedback */
+    text-align: center;
+    transition: background 0.2s ease;
+  }
+  
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background-color: rgba(231, 216, 181, 0.2); /* leichtes Feedback beim Hover/Focus */
+    outline: 2px solid #E7D8B5; /* Sichtbare Umrandung für Tastaturnutzer */
+    outline-offset: 4px;
+  }
+
+  a.text-button,
+  a.text-button:visited {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'LuckiestGuy', sans-serif;
+    color: #E7D8B5;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    line-height: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  a.text-button:hover,
+  a.text-button:focus {
+    background-color: rgba(231, 216, 181, 0.2);
+    outline: 2px solid #E7D8B5;
+    outline-offset: 4px;
+  }
+
+  .form-section {
+    background-color: #233E2D;
+    width: 100%;
+    padding: 4rem 1rem 6rem 1rem;
+    display: flex;
+    justify-content: center;
+
+border-top-left-radius: 100% 120px;
+border-top-right-radius: 100% 120px;
+    margin-top: 2rem;
+  }

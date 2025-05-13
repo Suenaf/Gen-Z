@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>registrierung</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>registrierung</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/register.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/login.css" /> 
 </head>
-
 <body>
-    <h1>Jetzt registrieren</h1>
+  <div class="logo-container">
+    <img src="images/logo.png" alt="Logo" class="logo" />
+  </div>
 
-    <form id="registerForm" action="">
+  <main class="center-wrapper">
+    <div class="headline">
+      <h2>so tickt</h2>
+      <h1>gen z</h1>
+    </div>
 
-        <label for="email">E-Mail:</label>
-        <input id="email" type="email">
-        <br />
-        <br />
+    <div class="form-section">
+      <form id="registerForm" action="">
+        <input id="email" type="email" placeholder="E-Mail" />
+        <br /><br />
 
-        <label for="username">Benutzername:</label>
-        <input id="username" type="Benutzername">
-        <br />
-        <br />
+        <input id="username" type="text" placeholder="Benutzername" />
+        <br /><br />
 
-        <label for="password">Passwort:</label>
-        <input id="password" type="password">
-        <br />
-        <br />
+        <input id="password" type="password" placeholder="Passwort" />
+        <br /><br />
 
-        <button type="submit">Registrieren!</button>
+        <button type="submit">registrieren</button>
+      </form>
+    </div>
+  </main>
 
-        <p>Bereits ein Konto? <a href="login.html">Jetzt einloggen!</a></p>
-    </form>
-
-    <script src="js/register.js"></script>
+  <script src="js/register.js"></script>
 </body>
-
 </html>
