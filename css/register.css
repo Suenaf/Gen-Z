@@ -1,0 +1,28 @@
+.headline {
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1;
+    padding-top: 6%; /* Abstand von oben in Prozent der Viewport-Höhe */
+  }
+  
+  .headline h2 {
+    font-size: 2.5rem;
+    color: #DC4900;
+    margin: 0;
+  }
+  
+  .headline h1 {
+    font-size: 5rem;
+    color: #233E2D;
+    margin: 0;
+  }
+
+  .center-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* horizontal zentrieren */
+    justify-content: center;
+    text-align: center;    /* Textinhalt ebenfalls zentrieren */
+    padding-top: 10vh;     /* vertikaler Abstand von oben */
+}
+
