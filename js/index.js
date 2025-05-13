@@ -11,9 +11,8 @@ fetch("api/index.php")
         window.location.href = "login.html";
     } else {
         // write welcome message to html
-        document.getElementById("welcome-message").
-        innerHTML = 
-        "Willkommen " + data.username;
+        document.getElementById("welcome-message").innerHTML =
+        "Willkommen<br><span class='username-highlight'>" + data.username + "</span>";
     }
 })
 .catch((error) => {
