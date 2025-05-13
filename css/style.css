@@ -73,19 +73,21 @@ input {
   font-size: 1rem;
   font-weight: bold;
   font-family: 'LuckiestGuy', sans-serif;
-  color: #233E2D;
-  background-color: #E7D8B5;
+  color: #E7D8B5;
+  text-decoration: none;
   padding: 1rem 2rem;
   line-height: 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   text-align: center;
   transition: background 0.2s ease;
+  width: auto;            /* ✨ Wichtig: verhindert Stretching */
+  max-width: 300px;       /* optional, falls du ein Limit willst */
 }
 
 .button:hover,
 .button:focus {
-  background-color: #d1c5a4;
+  background-color: rgba(231, 216, 181, 0.2); /* <- hier fehlte die Klammer */
   outline: 2px solid #E7D8B5;
   outline-offset: 4px;
 }
@@ -145,3 +147,85 @@ border-top-left-radius: 100% 120px;
 border-top-right-radius: 100% 120px;
     margin-top: 2rem;
   }
+
+  #logout-button {
+    all: unset;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'LuckiestGuy', sans-serif;
+    color: #E7D8B5;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    line-height: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s ease;
+    width: auto;            /* ✨ Wichtig: verhindert Stretching */
+    max-width: 300px;       /* optional, falls du ein Limit willst */
+  }
+  
+  #logout-button:hover,
+#logout-button:focus {
+  background-color: rgba(231, 216, 181, 0.2); /* sanfter Hover-Effekt */
+  outline: 2px solid #E7D8B5;                 /* sichtbarer Rahmen bei Fokus */
+  outline-offset: 4px;
+}
+
+  .center-button {
+    margin: 0 auto;             /* ✨ zentriert zwischen den beiden Seiten */
+  }
+
+  .dashboard-box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #233E2D;
+    padding: 4rem 1rem 6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 100% 120px;
+    border-top-right-radius: 100% 120px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  /* Flex-Elemente gleich groß für echtes Zentrieren */
+.dashboard-left,
+.dashboard-center,
+.dashboard-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.dashboard-left {
+  justify-content: flex-start;
+}
+.dashboard-right {
+  justify-content: flex-end;
+}
+
+.icon-button {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.icon-button:hover,
+.icon-button:focus {
+  background-color: rgba(231, 216, 181, 0.2);
+  outline: 2px solid #E7D8B5;
+  outline-offset: 4px;
+}
+
+.home-icon {
+  width: 24px;   /* oder z. B. 32px je nach Wunsch */
+  height: 24px;
+  fill: #E7D8B5; /* falls das SVG `fill="currentColor"` nutzt */
+}
