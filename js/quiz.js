@@ -84,73 +84,85 @@ fetch("api/index.php")
         const answers = [correctAnswer, ...wrongAnswers.map(w => w.bedeutung)].sort(() => Math.random() - 0.5);
 
         container.innerHTML = `
-            <div class="question">
-                <p>Frage ${currentQuestionIndex + 1} von ${maxFragen}:<br>
-                Was bedeutet <strong>"${item.wort}"</strong>?</p>
-                <div class="buttons">
-                    ${answers.map(answer => `<button>${answer}</button>`).join('')}
-                </div>
-                <p class="info" style="font-style: italic;"></p>
-            </div>
-        `;
+        <p class="quiz-progress">Frage ${currentQuestionIndex + 1} von ${maxFragen}</p>
+      
+        <p class="quiz-intro">Was bedeutet ...</p>
+      
+        <div class="quiz-card">
+          <h1 class="quiz-word">${item.wort}</h1>
+        </div>
+      
+        <div class="quiz-answers">
+          ${answers.map(answer => `<button class="quiz-btn">${answer}</button>`).join('')}
+        </div>
+      
+        <p class="info" style="font-style: italic;"></p>
+      `;
 
         const buttons = container.querySelectorAll('button');
         const infoText = container.querySelector('.info');
 
         buttons.forEach(button => {
             button.addEventListener('click', () => {
-                const answer = button.innerText;
-                if (answer === correctAnswer) {
-                    if (attempts === 0) {
-                        score += 1;
-                        infoText.innerText = "Richtig!";
-                        saveAntwort(item.id, 1, 1);
-                    } else {
-                        score += 0.5;
-                        infoText.innerText = "Richtig (beim zweiten Versuch)!";
-                        saveAntwort(item.id, 1, 2);
-                    }
-                    highlightButtons(correctAnswer);
-                    disableAllButtons();
-                    setTimeout(() => {
-                        currentQuestionIndex++;
-                        showQuestion();
-                    }, 1000);
+              const answer = button.innerText;
+          
+              if (answer === correctAnswer) {
+                if (attempts === 0) {
+                  score += 1;
+                  infoText.innerText = "Richtig!";
+                  saveAntwort(item.id, 1, 1);
                 } else {
-                    attempts++;
-                    button.disabled = true;
-                    button.classList.add('wrong');
-                    if (attempts === 1) {
-                        infoText.innerText = "Leider falsch. Du hast noch einen Versuch.";
-                    } else {
-                        infoText.innerText = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
-                        highlightButtons(correctAnswer);
-                        disableAllButtons();
-                        saveAntwort(item.id, 0, 2);
-                        setTimeout(() => {
-                            currentQuestionIndex++;
-                            showQuestion();
-                        }, 2000);
-                    }
+                  score += 0.5;
+                  infoText.innerText = "Richtig (beim zweiten Versuch)!";
+                  saveAntwort(item.id, 1, 2);
                 }
-            });
-        });
-
-        function disableAllButtons() {
-            buttons.forEach(btn => {
-                btn.disabled = true;
-            });
-        }
-
-        function highlightButtons(correct) {
-            buttons.forEach(btn => {
-                if (btn.innerText === correct) {
-                    btn.classList.add('correct');
-                } else if (!btn.classList.contains('wrong')) {
-                    btn.classList.add('disabled');
+          
+                button.classList.add('correct');
+                disableAllButtons();
+          
+                setTimeout(() => {
+                  currentQuestionIndex++;
+                  showQuestion();
+                }, 1000);
+          
+              } else {
+                attempts++;
+                button.classList.add('wrong');
+                button.disabled = true;
+          
+                if (attempts === 1) {
+                  infoText.innerText = "Leider falsch. Du hast noch einen Versuch.";
+                } else {
+                  infoText.innerText = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
+                  highlightButtons(correctAnswer);
+                  disableAllButtons();
+                  saveAntwort(item.id, 0, 2);
+          
+                  setTimeout(() => {
+                    currentQuestionIndex++;
+                    showQuestion();
+                  }, 2000);
                 }
+              }
             });
-        }
+          });
+          
+          function disableAllButtons() {
+            buttons.forEach(btn => {
+              btn.disabled = true;
+              btn.classList.add('disabled');
+            });
+          }
+          
+          function highlightButtons(correct) {
+            buttons.forEach(btn => {
+              if (btn.innerText === correct) {
+                btn.classList.add('correct');
+              } else if (!btn.classList.contains('wrong')) {
+                btn.classList.add('disabled');
+              }
+            });
+          }
     }
 
     function saveAntwort(begriffId, korrekt, versuche) {

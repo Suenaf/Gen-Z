@@ -1,37 +1,92 @@
-#progress-bar {
-    height: 8px;
-    background-color: #4caf50;
-    width: 0%;
-    transition: width 0.5s;
-    margin-bottom: 16px;
-    border-radius: 4px;
-}
-
-button {
-    margin: 5px;
-    padding: 10px 20px;
+.quiz-progress {
+    text-align: center;
+    font-family: 'LucidaGrande', sans-serif;
     font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .quiz-intro {
+    font-family: 'LucidaGrande', sans-serif;
+    font-size: 1.5rem;
+    text-align: left;   
+    width: 90%; 
+    max-width: 500px;       
+    margin: 0 auto 0.5rem;  
+  }
+  
+  .quiz-card {
+    background-color: #325941; /* Grün */
+    color: white;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: pop 0.4s ease;
+  }
+  
+  @keyframes pop {
+    from { transform: scale(0.95); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  
+  .quiz-word {
+    font-family: 'LuckiestGuy', sans-serif;
+    font-size: 3rem;
+    margin: 0;
+    color: white;
+  }
+  
+  .quiz-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+    align-items: center;
+  }
+  
+  .quiz-btn {
+    font-family: 'LucidaGrande', sans-serif;
+    font-size: 1.5rem;
+    background-color: #325941; /* Standard: Grün */
+    color: white;
     border: none;
-    background-color: #325941;
-    transition: 0.3s;
-}
-
-button.correct {
-    background-color: #137a3a;
-    color: white;
-}
-
-button.wrong {
-    background-color: #f44336;
-    color: white;
-}
-
-button.disabled {
+    padding: 2rem;
+    border-radius: 3rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+  }
+  
+  .quiz-btn.correct {
+    background-color: #233E2D; /* Dunkelgrün */
+  }
+  
+  .quiz-btn.wrong {
+    background-color: #DC4900; /* Rot */
+  }
+  
+  .quiz-btn.disabled {
     opacity: 0.5;
-}
-
-button:hover:not(:disabled) {
-    background-color: #bbb;
-}
+    pointer-events: none;
+  }
+  
+  .quiz-btn:hover:not(.disabled):not(.correct):not(.wrong) {
+    background-color: #233E2D; /* Hover = Dunkelgrün */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+  
+  #jugendwoerter {
+    padding-bottom: 16rem; /* Abstand für fixe Dashboard-Box am Desktop */
+  }
+  
+  @media screen and (max-width: 768px) {
+    #jugendwoerter {
+      padding-bottom: 8rem; /* Kleinerer Abstand für Mobile */
+    }
+  }
