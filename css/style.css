@@ -71,6 +71,14 @@ input {
     font-family: 'LuckiestGuy', sans-serif; 
 }
 
+.headline-text {
+  display: block;      
+  text-align: right;        
+  white-space: normal;
+  line-height: 1.4;
+  padding-right: 2rem; 
+}
+
 .button {
   all: unset;
   display: inline-block;
