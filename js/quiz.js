@@ -7,15 +7,13 @@ fetch("api/index.php")
     if (data.status === "success") {
         window.userId = data.user_id; // merken für spätere Speicherung
         console.log("Eingeloggt als:", data.username);
-        startQuizLaden(); // startet das Quiz
     } else {
         window.location.href = "login.html"; // zurück zum Login
     }
   });
 
-  function startQuizLaden() {
-  
-document.addEventListener("DOMContentLoaded", function () {
+
+    document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById('jugendwoerter');
     const progressBar = document.getElementById('progress-bar');
 
@@ -171,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>Das entspricht <strong>${prozent}%</strong>.</p>
             <button id="restart">Quiz neu starten</button>
         `;
-    }
+
         // Speichern an den Server senden
         fetch('api/speichern.php', {
             method: 'POST',
@@ -186,28 +184,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         progressBar.style.width = '100%';
-    },
-
-    function saveAnswersToBackend() {
-        const fragen = begriffe.map(item => ({
-            begriff_id: item.id,
-            korrekt: item.userCorrect,
-            versuche: item.userAttempts
-        }));
-    
-        fetch('api/speichern.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ fragen })
-        })
-        .then(res => res.json())
-        .then(result => {
-            if (result.success) {
-                console.log("Antworten gespeichert!");
-            } else {
-                console.error("Fehler beim Speichern:", result.message);
-            }
-        });
-        });
     }
-,});
+});
+
+function saveAnswersToBackend() {
+    const fragen = begriffe.map(item => ({
+        begriff_id: item.id,
+        korrekt: item.userCorrect,
+        versuche: item.userAttempts
+    }));
+
+    fetch('api/speichern.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fragen })
+    })
+    .then(res => res.json())
+    .then(result => {
+        if (result.success) {
+            console.log("Antworten gespeichert!");
+        } else {
+            console.error("Fehler beim Speichern:", result.message);
+        }
+    });
+}
