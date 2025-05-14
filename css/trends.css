@@ -29,9 +29,18 @@
 }
 
 .artikel a {
-    font-family: 'LucidaGrande';
-    src: url('../fonts/LucidaGrande.ttf') format('truetype');
+    font-family: 'LucidaGrande', 'Lucida Sans', sans-serif;
     color: #DC4900;
     text-decoration: none;
     font-weight: bold;
+  }
+
+  #artikel-container {
+    padding-bottom: 16rem; /* Abstand für die fixe Dashboard-Box */
+  }
+
+  @media screen and (max-width: 768px) {
+    #artikel-container {
+      padding-bottom: 8rem;
+    }
   }
