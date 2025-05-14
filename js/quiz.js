@@ -1,5 +1,20 @@
 console.log("Hello from Quiz JS!");
 
+// Überprüfe ob der User eingeloggt ist
+fetch("api/index.php")
+  .then(res => res.json())
+  .then(data => {
+    if (data.status === "success") {
+        window.userId = data.user_id; // merken für spätere Speicherung
+        console.log("Eingeloggt als:", data.username);
+        startQuizLaden(); // startet das Quiz
+    } else {
+        window.location.href = "login.html"; // zurück zum Login
+    }
+  });
+
+  function startQuizLaden() {
+  
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById('jugendwoerter');
     const progressBar = document.getElementById('progress-bar');
@@ -9,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let score = 0;
     const maxFragen = 10;
     let dataBackup = [];
+    let beantworteteFragen = [];
 
     if (!container || !progressBar) {
         console.error("Benötigte HTML-Elemente nicht gefunden!");
@@ -39,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         begriffe = dataBackup.sort(() => Math.random() - 0.5).slice(0, maxFragen);
         currentQuestionIndex = 0;
         score = 0;
+        beantworteteFragen = [];
         updateProgressBar();
         showQuestion();
     }
@@ -89,9 +106,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (attempts === 0) {
                         score += 1;
                         infoText.innerText = "Richtig!";
+                        saveAntwort(item.id, 1, 1);
                     } else {
                         score += 0.5;
                         infoText.innerText = "Richtig (beim zweiten Versuch)!";
+                        saveAntwort(item.id, 1, 2);
                     }
                     highlightButtons(correctAnswer);
                     disableAllButtons();
@@ -109,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         infoText.innerText = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
                         highlightButtons(correctAnswer);
                         disableAllButtons();
+                        saveAntwort(item.id, 0, 2);
                         setTimeout(() => {
                             currentQuestionIndex++;
                             showQuestion();
@@ -135,6 +155,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function saveAntwort(begriffId, korrekt, versuche) {
+        beantworteteFragen.push({
+            begriff_id: begriffId,
+            korrekt: korrekt === 1,
+            versuche: versuche
+        });
+    }
+
     function showResult() {
         const prozent = ((score / maxFragen) * 100).toFixed(1);
         container.innerHTML = `
@@ -143,11 +171,43 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>Das entspricht <strong>${prozent}%</strong>.</p>
             <button id="restart">Quiz neu starten</button>
         `;
+    }
+        // Speichern an den Server senden
+        fetch('api/speichern.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fragen: beantworteteFragen })
+        }).then(response => response.json())
+          .then(data => console.log("Antworten gespeichert:", data))
+          .catch(error => console.error("Fehler beim Speichern:", error));
 
         document.getElementById('restart').addEventListener('click', () => {
             fetchNewDataAndStartQuiz();
         });
 
         progressBar.style.width = '100%';
+    },
+
+    function saveAnswersToBackend() {
+        const fragen = begriffe.map(item => ({
+            begriff_id: item.id,
+            korrekt: item.userCorrect,
+            versuche: item.userAttempts
+        }));
+    
+        fetch('api/speichern.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fragen })
+        })
+        .then(res => res.json())
+        .then(result => {
+            if (result.success) {
+                console.log("Antworten gespeichert!");
+            } else {
+                console.error("Fehler beim Speichern:", result.message);
+            }
+        });
+        });
     }
-});
+,});
