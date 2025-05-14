@@ -1,11 +1,37 @@
-.artikel {
-    width: 80%;
+.container {
+    width: 90%;
     margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .artikel {
     background-color: #325941;
-}
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
 
 .artikel h2 {
-    text-align: center;
-    padding: 20px;
-    color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
 }
+
+.artikel p {
+  color: white;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.artikel a {
+    font-family: 'LucidaGrande';
+    src: url('../fonts/LucidaGrande.ttf') format('truetype');
+    color: #DC4900;
+    text-decoration: none;
+    font-weight: bold;
+  }

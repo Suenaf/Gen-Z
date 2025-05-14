@@ -254,13 +254,6 @@ button[type="submit"] {
   outline-offset: 4px;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
-  background-color: #325941;
-  padding: 20px;
-}
-
 /* Basis-Design: Smartphone */
 .home-icon {
   width: 32px !important;

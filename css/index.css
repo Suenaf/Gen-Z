@@ -12,3 +12,10 @@
     font-weight: bold;
   }
   
+  .container {
+    background-color: #325941;
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+  
