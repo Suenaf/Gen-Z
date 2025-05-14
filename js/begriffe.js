@@ -41,10 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderBegriffe(begriffe) {
         container.innerHTML = ''; // Container leeren
 
-        begriffe.forEach(item => {
-            const element = document.createElement('p');
-            element.innerHTML = `<strong>${item.wort}</strong>: ${item.bedeutung}`;
-            container.appendChild(element);
+        begriffe.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+    
+            // Abwechselnd Farben durch Klasse "green" oder "orange"
+            card.classList.add(index % 2 === 0 ? 'green' : 'orange');
+    
+            card.innerHTML = `
+                <h2>${item.wort}</h2>
+                <p>${item.bedeutung}</p>
+            `;
+    
+            container.appendChild(card);
         });
     }
 
