@@ -4,7 +4,7 @@
     text-align: left;        /* Text bleibt linksbündig */
     white-space: normal;
     line-height: 1.4;
-    padding-left: 2rem; /* optional: Abstand vom linken Rand */
+    margin-left: 2rem; /* optional: Abstand vom linken Rand */
   }
   
   .username-highlight {
