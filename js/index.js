@@ -31,3 +31,23 @@ function ladeLernstatus() {
 }
 
 ladeLernstatus(); // <- Das ruft die Anzeige der Zahlen auf
+
+function ladeZufaelligesWort() {
+    fetch("api/aktuell.php")
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.error) {
+                document.getElementById("slang-liste").innerText = "Fehler beim Laden.";
+                return;
+            }
+
+            const slangListe = document.getElementById("slang-liste");
+            slangListe.innerHTML = `<strong>${data.wort}</strong>`;
+        })
+        .catch((error) => {
+            console.error("Fehler beim Laden eines Begriffs:", error);
+            document.getElementById("slang-liste").innerText = "Fehler beim Laden.";
+        });
+}
+
+ladeZufaelligesWort();
