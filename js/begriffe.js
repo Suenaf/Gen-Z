@@ -2,34 +2,28 @@ console.log("Hello from Begriffe JS!");
 
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById('jugendwoerter');
-    const searchInput = document.getElementById('search-input'); // Das Suchfeld
+    const searchInput = document.getElementById('search-input');
 
     if (!container) {
         console.error("Container 'jugendwoerter' nicht gefunden!");
         return;
     }
 
-    let begriffeData = []; // Hier speichern wir alle Begriffe, um sie bei der Suche zu verwenden.
+    let begriffeData = [];
 
-    fetch('api/begriffe.php')  // → Pfad zur PHP-Datei, vom HTML aus gesehen!
+    fetch('api/begriffe.php')
         .then(response => response.json())
         .then(data => {
             if (data.error) {
                 container.innerHTML = "Fehler: " + data.error;
                 return;
             }
-
             if (data.length === 0) {
                 container.innerHTML = "Keine Begriffe gefunden.";
                 return;
             }
-
-            begriffeData = data; // Speichern der Begriffe in der globalen Variable
-
-            // Begriffe nach Wort alphabetisch sortieren
+            begriffeData = data;
             begriffeData.sort((a, b) => a.wort.localeCompare(b.wort));
-
-            // Begriffe anzeigen
             renderBegriffe(begriffeData);
         })
         .catch(error => {
@@ -37,37 +31,43 @@ document.addEventListener("DOMContentLoaded", function () {
             container.innerHTML = "Es gab ein Problem beim Laden der Begriffe.";
         });
 
-    // Funktion zum Rendern der Begriffe
     function renderBegriffe(begriffe) {
-        container.innerHTML = ''; // Container leeren
-
+        container.innerHTML = '';
         begriffe.forEach((item, index) => {
             const card = document.createElement('div');
             card.classList.add('card');
-    
-            // Abwechselnd Farben durch Klasse "green" oder "orange"
             card.classList.add(index % 2 === 0 ? 'green' : 'orange');
-    
             card.innerHTML = `
-                <h2>${item.wort}</h2>
+                <h2 class="sprechwort" style="cursor:pointer;">${item.wort}</h2>
                 <p>${item.bedeutung}</p>
             `;
-    
             container.appendChild(card);
+        });
+
+        // Klick-Listener für Text-to-Speech mit puter.ai.txt2speech
+        const wortElements = container.querySelectorAll('.sprechwort');
+        wortElements.forEach((el, i) => {
+            el.addEventListener('click', () => {
+                const text = begriffe[i].wort;
+                if (window.puter && puter.ai && puter.ai.txt2speech) {
+                    puter.ai.txt2speech(text).then(audio => {
+                        audio.play();
+                    }).catch(e => {
+                        console.error('TTS Fehler:', e);
+                    });
+                } else {
+                    console.warn('puter.ai.txt2speech ist nicht verfügbar');
+                }
+            });
         });
     }
 
-    // Eventlistener für das Suchfeld
     searchInput.addEventListener('input', function () {
         const searchQuery = searchInput.value.toLowerCase();
-
-        // Filtere die Begriffe basierend auf der Eingabe
-        const filteredBegriffe = begriffeData.filter(item => 
+        const filteredBegriffe = begriffeData.filter(item =>
             item.wort.toLowerCase().includes(searchQuery) ||
             item.bedeutung.toLowerCase().includes(searchQuery)
         );
-
-        // Zeige die gefilterten Begriffe
         renderBegriffe(filteredBegriffe);
     });
 });
