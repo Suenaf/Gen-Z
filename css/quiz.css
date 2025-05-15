@@ -1,6 +1,30 @@
+/* Standard: Desktop-Version sichtbar */
+.headline-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .headline-desktop {
+    display: none;
+  }
+  .headline-mobile {
+    display: inline;
+  }
+}
+
+.green-h1 {
+  display: inline-block;
+  font-family: 'LuckiestGuy', sans-serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: #325941;
+}
+
+
 .quiz-progress {
     text-align: center;
     font-family: 'LucidaGrande', sans-serif;
+    font-weight: bold;
     font-size: 1rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -8,8 +32,9 @@
   
   .quiz-intro {
     font-family: 'LucidaGrande', sans-serif;
+    font-weight: bold;
     font-size: 1.5rem;
-    text-align: left;   
+    text-align: left;
     width: 90%; 
     max-width: 500px;       
     margin: 0 auto 0.5rem;  
@@ -19,7 +44,7 @@
     background-color: #325941; /* Grün */
     color: white;
     border-radius: 2rem;
-    padding: 2rem;
+    padding: 6rem 3rem;
     margin: 1rem auto;
     width: 90%;
     max-width: 500px;
@@ -27,6 +52,12 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     animation: pop 0.4s ease;
   }
+
+  @media screen and (max-width: 768px) {
+    .quiz-card {
+      padding: 3rem 2rem;
+    }
+  }  
   
   @keyframes pop {
     from { transform: scale(0.95); opacity: 0; }
@@ -71,9 +102,14 @@
   }
   
   .quiz-btn.disabled {
-    opacity: 0.5;
     pointer-events: none;
   }
+
+  /* Verhindere, dass .correct blass aussieht */
+.quiz-btn.correct.disabled {
+  opacity: 1;
+  background-color: #233E2D;
+}
   
   .quiz-btn:hover:not(.disabled):not(.correct):not(.wrong) {
     background-color: #233E2D; /* Hover = Dunkelgrün */
@@ -82,7 +118,7 @@
   }
   
   #jugendwoerter {
-    padding-bottom: 16rem; /* Abstand für fixe Dashboard-Box am Desktop */
+    padding-bottom: 10rem; /* Abstand für fixe Dashboard-Box am Desktop */
   }
   
   @media screen and (max-width: 768px) {
@@ -90,3 +126,53 @@
       padding-bottom: 8rem; /* Kleinerer Abstand für Mobile */
     }
   }
+
+  /* Info-Text */
+.info {
+  font-family: 'LucidaGrande', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem auto 0;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Quiz-Endbildschirm */
+.quiz-end h2 {
+  font-family: 'LuckiestGuy', sans-serif;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.quiz-end p {
+  font-family: 'LucidaGrande', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem auto;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+}
+
+.quiz-end button#restart {
+  display: block;
+  font-family: 'LuckiestGuy', sans-serif;
+  font-size: 2.5rem;
+  background-color: #325941;
+  color: white;
+  border: none;
+  padding: 3rem 2rem;
+  border-radius: 3rem;
+  margin: 2rem auto 0 auto;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-end button#restart:hover {
+  background-color: #233E2D;
+}

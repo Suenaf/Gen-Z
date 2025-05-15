@@ -123,7 +123,7 @@ fetch("api/index.php")
                 setTimeout(() => {
                   currentQuestionIndex++;
                   showQuestion();
-                }, 1000);
+                }, 2000);
           
               } else {
                 attempts++;
@@ -176,11 +176,13 @@ fetch("api/index.php")
     function showResult() {
         const prozent = ((score / maxFragen) * 100).toFixed(1);
         container.innerHTML = `
-            <h2>Quiz beendet!</h2>
-            <p>Du hast ${score} von ${maxFragen} Punkten erreicht.</p>
-            <p>Das entspricht <strong>${prozent}%</strong>.</p>
-            <button id="restart">Quiz neu starten</button>
-        `;
+   <div class="quiz-end">
+    <h2>Quiz beendet!</h2>
+    <p>Du hast ${score} von ${maxFragen} Punkten erreicht.</p>
+    <p>Das entspricht <strong>${prozent}%</strong>.</p>
+    <button id="restart">Quiz neu starten</button>
+  </div>
+`;
 
         // Speichern an den Server senden
         fetch('api/speichern.php', {

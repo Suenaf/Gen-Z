@@ -24,13 +24,25 @@
     box-sizing: border-box;
   }
 
+  .info-text {
+    text-align: left;           /* Text bleibt linksbündig */
+    width: 90%;             /* Breite wie beim Input */
+    max-width: 500px;           /* Breite begrenzen wie beim Input */
+    margin: 0 auto 2rem auto;   /* horizontal zentrieren */
+    font-family: 'LucidaGrande', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+  
+
   .card {
     color: white;
     border-radius: 2rem;
     padding: 1.5rem;
     margin: 1.5rem auto;
     width: 90%;
-    max-width: 480px;
+    max-width: 500px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-family: 'LucidaGrande', sans-serif;
   }
@@ -59,7 +71,7 @@
   }
 
   #jugendwoerter {
-    padding-bottom: 16rem;
+    padding-bottom: 10rem;
   }
   
   @media screen and (max-width: 768px) {

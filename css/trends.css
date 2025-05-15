@@ -36,7 +36,7 @@
   }
 
   #artikel-container {
-    padding-bottom: 16rem; /* Abstand für die fixe Dashboard-Box */
+    padding-bottom: 10rem; /* Abstand für die fixe Dashboard-Box */
   }
 
   @media screen and (max-width: 768px) {
