@@ -1,48 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trend Talk - Start</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trend Talk - Start</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/index.css" />
 </head>
-
 <body>
-    <h2 id="welcome-message"></h2>
 
-<a href="quiz.html" class="container">Quiz</a>
-<div id="scoreboard">
-  <ul>
-      <li>Neu: <span id="neu-count">0</span></li>
-      <li>Üben: <span id="ueben-count">0</span></li>
-      <li>Gelernt: <span id="gelernt-count">0</span></li>
-  </ul>
-</div>
+  <h2 id="welcome-message">Guten Morgen <span class="username-highlight">Name</span></h2>
 
+  <!-- Kachel: Jugendsprache 101 -->
+  <a href="begriffe.html" class="card green">
+    <span>Jugendsprache 101</span>
+  </a>
 
-<a href="begriffe.html" class="container">Jugendwörter</a>
-<a href="trends.html" class="container">Artikel</a>
+  <!-- Kachel: Aktueller Slang + Quiz -->
+  <a href="quiz.html" class="card slang-card">
+    <div class="slang-left">
+      <div class="quiz-start">Quiz<br>Starten</div>
+    </div>
+    <div class="slang-right">
+      <div class="slang-title">Aktueller<br><strong>Slang</strong></div>
+      <div class="slang-list" id="slang-liste">Lädt...</div>
+    </div>
+  </a>
 
-<div class="dashboard-box">
-  <div class="dashboard-left">
-    <button id="logout-button">Logout</button>
+  <!-- Zähler -->
+  <div class="stats-row">
+    <div class="stat left"><strong id="neu-count">0</strong><br><span>neu</span></div>
+    <div class="stat center"><strong id="gelernt-count">0</strong><br><span>gelernt</span></div>
+    <div class="stat right"><strong id="ueben-count">0</strong><br><span>üben</span></div>
   </div>
-  <div class="dashboard-center">
+
+  <!-- Kachel: Schlagzeile Beni -->
+  <a href="trends.html" class="card green headline-card">
+    <span class="headline-title">Schlagzeile<br>Beni</span>
+    <div class="headline-badge">Artikel lesen</div>
+  </a>
+
+  <!-- Dashboard bleibt unverändert -->
+  <div class="dashboard-box">
+    <div class="dashboard-left">
+      <button id="logout-button">Logout</button>
+    </div>
+    <div class="dashboard-center">
       <a href="index.html" class="icon-button" aria-label="Startseite">
-          <img src="images/home.svg" alt="" class="home-icon" />
-        </a>
+        <img src="images/home.svg" alt="" class="home-icon" />
+      </a>
+    </div>
+    <div class="dashboard-right"></div>
   </div>
-  <div class="dashboard-right">
-    <!-- (optional) zukünftiger Button oder leer lassen -->
-  </div>
-</div>
-    
-        <script src="js/index.js"></script>
-        <script src="js/logout.js"></script>
 
+  <script src="js/index.js"></script>
+  <script src="js/logout.js"></script>
 </body>
-
 </html>
