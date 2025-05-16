@@ -177,8 +177,8 @@ fetch("api/index.php")
         const prozent = ((score / maxFragen) * 100).toFixed(1);
         container.innerHTML = `
    <div class="quiz-end">
-    <h2>Quiz beendet!</h2>
-    <p>Du hast ${score} von ${maxFragen} Punkten erreicht.</p>
+    <h2>Du hast das Quiz beendet!</h2>
+    <p>Du hast ${score} von ${maxFragen} Punkten erreicht. Slay!</p>
     <p>Das entspricht <strong>${prozent}%</strong>.</p>
     <button id="restart">Quiz neu starten</button>
   </div>
