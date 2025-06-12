@@ -15,10 +15,11 @@ Die API-Integration (z. B. Text-to-Speech, Artikel-Feed) brachte uns ein besse
 Durch gezielte Fehlersuche konnten wir technische Herausforderungen selbstständig lösen.
 Eine klare Aufgabenverteilung und gute Teamarbeit förderten den Projektfortschritt.
 Wir entwickelten ein Gespür für benutzerfreundliches Design – speziell für ältere Zielgruppen.
-Schwierigkeiten:
+
+## Schwierigkeiten:
 
 Die grösste Herausforderung war die Verknüpfung von Logindaten mit Begriffen und deren korrekte Darstellung auf der Startseite – inklusive der Kategorien neu, üben und gelernt (nach 3 richtigen Quizantworten).
-Auch die Einbindung der Text-to-Speech-Funktion in Jugendsprache 101 stellte sich als komplex heraus – insbesondere bei der Datenübergabe an tts.php und der Auswahl einer passenden API.
+Auch die Einbindung der Text-to-Speech-Funktion in Jugendsprache 101 stellte sich als komplex heraus – insbesondere bei der Datenübergabe an tts.php und der Auswahl einer passenden API. Schlussendlich wurden wir bei puter.ai fündig und haben diese eingebunden. Uns blieb einiges an Programmieren erspart, weil diese API selber bereits viel macht.
 
 ## Genutzte Ressourcen:
 - [ChatGPT](https://chat.openai.com)
