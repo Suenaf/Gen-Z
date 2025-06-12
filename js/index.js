@@ -12,7 +12,7 @@ fetch("api/index.php")
     } else {
         // write welcome message to html
         document.getElementById("welcome-message").innerHTML =
-        "Willkommen<br><span class='username-highlight'>" + data.username + "</span>";
+        "Slay, good to see you <span class='username-highlight'>" + data.username + "</span>";
     }
 })
 .catch((error) => {
