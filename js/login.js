@@ -8,16 +8,18 @@ document
   // ► Eingabewerte aus den Feldern holen
   const loginInfo = document.querySelector("#username-email").value.trim();
   const password = document.querySelector("#password").value;
-    
+  
+  if (!loginInfo || !password) {
+    alert("Bitte fülle alle Felder aus");
+    return;
+  }
+
     // ► FormData füllt PHPs $_POST automatisch
     const formData = new FormData();
     formData.append("loginInfo", loginInfo);
     formData.append("password", password);
 
-    if (!loginInfo || !password) {
-      alert("Bitte fülle alle Felder aus");
-      return;
-    }
+
  
     // Fetch
     try {
